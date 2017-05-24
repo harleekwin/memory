@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="photoapp">
+  <head>
+    <meta charset="utf-8">
+    <title>Photo Album</title>
+  </head>
+  <body ng-controller="HomeController as controller">
+
+    <button ng-click="controller.pickFile()">Upload</button>
+
+    <h2>{{controller.file.filename}}</h2>
+    <img ng-src="{{controller.file.url | fpConvert:{w: 400} }}" alt="{{controller.file.filename}}" />
+
+    <script src="/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="/Scripts/angular.min.js"></script>
+
+    <script type="text/javascript" src="//api.filepicker.io/v2/filepicker.js"></script>
+    <script src="/Scripts/angular_filepicker.min.js"></script>
+
+    <script src="/ngApp/app.js"></script>
+    <script src="ngApp/controllers.js"></script>
+
+  </body>
+</html>
