@@ -23,6 +23,23 @@ namespace photoapp.Controllers {
 
     export class AboutController {
         public message = 'Hello from the about page!';
-    }
 
-}
+    export class EditController {
+      public file;
+
+      public save() {
+        this.photoService.save(this.file).then(() => {
+          this.$state.go('home');
+        });
+      }
+
+      constructor(
+        private photoService:photoapp.Services.PhotoService,
+        private $state:ng.ui.IStateService,
+        private $stateParams:ng.ui.IStateParamsService
+      ) {
+        let fileId = $stateParams['id'];
+        this.file = photoService.get(fileId);
+      }
+    }
+  }
